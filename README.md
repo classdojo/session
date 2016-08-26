@@ -1,3 +1,8 @@
+# NOTE
+We've forked this because it doesn't play nicely with our cookie system - one global one and one for each of teach/home/student.
+The only change is the block of commented out code in the `getcookie` method.
+
+
 # express-session
 
 [![NPM Version][npm-image]][npm-url]
