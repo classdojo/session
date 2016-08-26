@@ -504,13 +504,13 @@ function getcookie(req, name, secrets) {
   // allows us to copy the `dojo_teach_login.sid` or other site-specific cookie to overwrite 
   // the `dojo_login.sid` value.  This in turn allows a user to be signed in as both a
   // parent and a teacher and a student at the same time.
-  if (!val && req.signedCookies) {
+  if (req.signedCookies) {
     val = req.signedCookies[name];
   }
 
 
   // read from cookie header
-  if (header) {
+  if (!val && header) {
     var cookies = cookie.parse(header);
 
     raw = cookies[name];
