@@ -498,19 +498,18 @@ function getcookie(req, name, secrets) {
   var raw;
   var val;
 
-  // DOJO CHANGE - First attempt to used a parsed objectfor the cookies, falling back
-  // to parsing the cookie only if this doesn't exist.  This is the reverse of normal.
+  // DOJO CHANGE - Use a parsed object for the cookies, instead of parsing them here.
   // Since we're already parsing the cookies in previous middleware, this is safe, and it
   // allows us to copy the `dojo_teach_login.sid` or other site-specific cookie to overwrite 
   // the `dojo_login.sid` value.  This in turn allows a user to be signed in as both a
   // parent and a teacher and a student at the same time.
   if (req.signedCookies) {
-    val = req.signedCookies[name];
+    return req.signedCookies[name];
   }
 
 
   // read from cookie header
-  if (!val && header) {
+  if (header) {
     var cookies = cookie.parse(header);
 
     raw = cookies[name];
