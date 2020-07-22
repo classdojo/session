@@ -7,7 +7,10 @@
     "Douglas Christopher Wilson <doug@somethingdoug.com>",
     "Joe Wagner <njwjs722@gmail.com>"
   ],
-  "repository": "expressjs/session",
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com/classdojo/session.git"
+  },
   "license": "MIT",
   "dependencies": {
     "cookie": "0.3.1",
